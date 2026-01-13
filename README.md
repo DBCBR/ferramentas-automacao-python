@@ -25,3 +25,21 @@ Você precisa ter o Python instalado. Instale as dependências com:
 
 ```bash
 pip install pandas openpyxl requests beautifulsoup4
+
+1. Consolidador de Excel
+Coloque seus arquivos de vendas na pasta arquivos_entrada/ com o padrão vendas_*.xlsx. Execute:
+
+Bash
+
+python consolidador.py
+Resultado: Será gerado o arquivo Relatorio_Executivo_Formatado.xlsx pronto para envio.
+
+2. Robô de Cotações
+Execute o script para iniciar a varredura:
+
+Bash
+
+python robo_citacoes.py
+Resultado: O robô navegará pelas páginas e salvará o arquivo citacoes_famosas_completo.xlsx.
+
+Autor: David [github.com/DBCBR] | [dbcbr@hotmail.com]
