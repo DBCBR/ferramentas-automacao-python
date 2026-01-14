@@ -32,6 +32,7 @@ pip install pandas openpyxl requests beautifulsoup4 selenium webdriver-manager
 Ferramenta para unificar planilhas dispersas.
 
 Preparação: Coloque seus arquivos na pasta raiz com o padrão vendas_*.xlsx.
+Ex.: vendas_janeiro.xlsx, vendas_fevereiro.xlsx
 
 Execução:
 ```Bash
