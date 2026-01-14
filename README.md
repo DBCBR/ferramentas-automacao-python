@@ -28,6 +28,37 @@ Você precisa ter o Python instalado. Instale todas as dependências do projeto 
 ```bash
 pip install pandas openpyxl requests beautifulsoup4 selenium webdriver-manager
 ```
+1. Consolidador de Excel (ETL)
+Ferramenta para unificar planilhas dispersas.
+
+Preparação: Coloque seus arquivos na pasta raiz com o padrão vendas_*.xlsx.
+
+Execução:
+```Bash
+python consolidador.py
+```
+
+Resultado: Gera o arquivo Relatorio_Executivo_Formatado.xlsx com colunas ajustadas automaticamente.
+
+2. Robô de Cotações (Crawler)
+Ferramenta para extração de dados em massa (Data Mining).
+
+Execução:
+```Bash
+python extrator_quotes.py
+```
+Resultado: O robô navega por 5 páginas e salva o arquivo citacoes_famosas_completo.xlsx.
+
+3. Robô de Login (RPA)
+Demonstração de acesso a sistemas fechados (Simulador de Usuário).
+
+Execução:
+
+```Bash
+python robo_login.py
+```
+Resultado: O script abrirá um navegador controlado, preencherá credenciais, realizará o login e validará o acesso via XPath.
+
 Autor: David Barcellos Cardoso
 E-mail: dbcbr@hotmail.com
 WhatsApp: (21) 98605-8337
