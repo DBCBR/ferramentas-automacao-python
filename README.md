@@ -8,9 +8,9 @@
 
 Este repositório contém soluções profissionais para resolver dores reais do setor administrativo e financeiro:
 
-1.  **Consolidador de Relatórios Financeiros (ETL):** Lê múltiplos arquivos Excel (ex: relatórios de filiais), unifica os dados, padroniza colunas e gera um Relatório Executivo formatado automaticamente.
-2.  **Monitor de Cotações (Web Crawler):** Robô que navega por múltiplas páginas de um site, extrai dados de interesse (preços/citações) e gera uma base de dados estruturada em Excel.
-3.  **Bot de Acesso Seguro (RPA/Selenium):** Automação de navegador real capaz de quebrar barreiras de login, preencher formulários dinâmicos e navegar em sistemas fechados (simulando comportamento humano).
+1. **Consolidador de Relatórios Financeiros (ETL):** Lê múltiplos arquivos Excel (ex: relatórios de filiais), unifica os dados, padroniza colunas e gera um Relatório Executivo formatado automaticamente.
+2. **Monitor de Cotações (Web Crawler):** Robô que navega por múltiplas páginas de um site, extrai dados de interesse (preços/citações) e gera uma base de dados estruturada em Excel.
+3. **Bot de Acesso Seguro (RPA/Selenium):** Automação de navegador real capaz de quebrar barreiras de login, preencher formulários dinâmicos e navegar em sistemas fechados (simulando comportamento humano).
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -23,11 +23,13 @@ Este repositório contém soluções profissionais para resolver dores reais do 
 ## 📦 Como Usar
 
 ### Pré-requisitos
+
 Você precisa ter o Python instalado. Instale todas as dependências do projeto com:
 
 ```bash
 pip install pandas openpyxl requests beautifulsoup4 selenium webdriver-manager
 ```
+
 1. Consolidador de Excel (ETL)
 Ferramenta para unificar planilhas dispersas.
 
@@ -35,22 +37,25 @@ Preparação: Coloque seus arquivos na pasta raiz com o padrão vendas_*.xlsx.
 Ex.: vendas_janeiro.xlsx, vendas_fevereiro.xlsx
 
 Execução:
+
 ```Bash
 python consolidador.py
 ```
 
 Resultado: Gera o arquivo Relatorio_Executivo_Formatado.xlsx com colunas ajustadas automaticamente.
 
-2. Robô de Cotações (Crawler)
+1. Robô de Cotações (Crawler)
 Ferramenta para extração de dados em massa (Data Mining).
 
 Execução:
+
 ```Bash
 python extrator_quotes.py
 ```
+
 Resultado: O robô navega por 5 páginas e salva o arquivo citacoes_famosas_completo.xlsx.
 
-3. Robô de Login (RPA)
+1. Robô de Login (RPA)
 Demonstração de acesso a sistemas fechados (Simulador de Usuário).
 
 Execução:
@@ -58,9 +63,9 @@ Execução:
 ```Bash
 python robo_login.py
 ```
+
 Resultado: O script abrirá um navegador controlado, preencherá credenciais, realizará o login e validará o acesso via XPath.
 
 Autor: David Barcellos Cardoso
-E-mail: dbcbr@hotmail.com
+E-mail: <dbcbr@hotmail.com>
 WhatsApp: (21) 98605-8337
-
