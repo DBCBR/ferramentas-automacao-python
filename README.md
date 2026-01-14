@@ -1,45 +1,33 @@
 # 🚀 Automação de Processos Corporativos com Python
 
-> Ferramentas desenvolvidas para automatizar tarefas repetitivas de ETL (Extract, Transform, Load) e Web Scraping, focadas em redução de custos operacionais.
+> Portfólio de ferramentas desenvolvidas para automatizar tarefas repetitivas de ETL (Extract, Transform, Load), Web Scraping e RPA (Robotic Process Automation), focadas em eficiência e redução de custos operacionais.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![Status](https://img.shields.io/badge/Status-Concluído-success)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![Status](https://img.shields.io/badge/Status-Concluído-success) ![Selenium](https://img.shields.io/badge/Selenium-Automated-green)
 
 ## 📋 Sobre o Projeto
 
-Este repositório contém scripts profissionais para resolver dores reais do setor administrativo e financeiro:
+Este repositório contém soluções profissionais para resolver dores reais do setor administrativo e financeiro:
 
-1.  **Consolidador de Relatórios Financeiros (ETL):** Lê múltiplos arquivos Excel (ex: relatórios de filiais), unifica os dados, remove colunas desnecessárias e gera um Relatório Executivo formatado automaticamente.
+1.  **Consolidador de Relatórios Financeiros (ETL):** Lê múltiplos arquivos Excel (ex: relatórios de filiais), unifica os dados, padroniza colunas e gera um Relatório Executivo formatado automaticamente.
 2.  **Monitor de Cotações (Web Crawler):** Robô que navega por múltiplas páginas de um site, extrai dados de interesse (preços/citações) e gera uma base de dados estruturada em Excel.
+3.  **Bot de Acesso Seguro (RPA/Selenium):** Automação de navegador real capaz de quebrar barreiras de login, preencher formulários dinâmicos e navegar em sistemas fechados (simulando comportamento humano).
 
 ## 🛠️ Tecnologias Utilizadas
 
 * **Python 3**
-* **Pandas & OpenPyXL:** Manipulação avançada de dados e formatação de Excel.
-* **BeautifulSoup4 & Requests:** Extração de dados web (Web Scraping).
-* **Glob:** Gerenciamento de arquivos do sistema.
+* **Selenium WebDriver:** Automação de browser para interação com sistemas complexos (cliques, login, JavaScript).
+* **Pandas & OpenPyXL:** Manipulação avançada de dados e formatação de Excel (Data Engineering).
+* **BeautifulSoup4 & Requests:** Extração de dados web leve e rápida.
+* **Glob/OS:** Gerenciamento de arquivos do sistema.
 
 ## 📦 Como Usar
 
 ### Pré-requisitos
-Você precisa ter o Python instalado. Instale as dependências com:
+Você precisa ter o Python instalado. Instale todas as dependências do projeto com:
 
 ```bash
-pip install pandas openpyxl requests beautifulsoup4
+pip install pandas openpyxl requests beautifulsoup4 selenium webdriver-manager
 
-1. Consolidador de Excel
-Coloque seus arquivos de vendas na pasta arquivos_entrada/ com o padrão vendas_*.xlsx. Execute:
-
-Bash
-
-python consolidador.py
-Resultado: Será gerado o arquivo Relatorio_Executivo_Formatado.xlsx pronto para envio.
-
-2. Robô de Cotações
-Execute o script para iniciar a varredura:
-
-Bash
-
-python robo_citacoes.py
-Resultado: O robô navegará pelas páginas e salvará o arquivo citacoes_famosas_completo.xlsx.
-
-Autor: David [github.com/DBCBR] | [dbcbr@hotmail.com]
+Autor: David Barcellos Cardoso
+E-mail: dbcbr@hotmail.com
+WhatsApp: (21) 98605-8337
