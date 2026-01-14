@@ -27,7 +27,8 @@ Você precisa ter o Python instalado. Instale todas as dependências do projeto 
 
 ```bash
 pip install pandas openpyxl requests beautifulsoup4 selenium webdriver-manager
-
+```
 Autor: David Barcellos Cardoso
 E-mail: dbcbr@hotmail.com
 WhatsApp: (21) 98605-8337
+
