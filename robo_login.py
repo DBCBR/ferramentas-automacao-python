@@ -1,12 +1,21 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import time
 
+# Configuração Fantasma
+chrome_options = Options()
+chrome_options.add_argument("--headless=new")
+chrome_options.add_argument("--window-size=1920,1080")
+
 # Configuração Padrão
 servico = Service(ChromeDriverManager().install())
-navegador = webdriver.Chrome(service=servico)
+navegador = webdriver.Chrome(service=servico, options=chrome_options)
+print(">>> Robô iniciado em modo invisível...")
 
 # 1. Acessar site estável
 navegador.get("http://quotes.toscrape.com/login")
@@ -25,9 +34,12 @@ btn_login.click()
 
 # 5. Verificação visual
 try:
-    # Tente encontrar o botão
-    navegador.find_element(By.XPATH, "//a[text()='Logout']")
-    print("Login bem-sucedido! Acesso liberado.")
+    # Dizemos ao robô: "Espere até 10 segundos pelo botão de Logout"
+    # Se aparecer em 0.5s, ele segue. Se passar de 10s, ele dá erro.
+    elemento_logout = WebDriverWait(navegador, 10).until(
+        EC.presence_of_element_located((By.XPATH, "//a[text()='Logout']"))
+    )
+    print("Login verificado com sucesso!")
+
 except:
-    # Se der erro ao procurar (não achou), caímos aqui sem travar
-    print("Falha no login. O botão Logout não apareceu.")
+    print("Tempo esgotado. O login pode ter falhado ou a página demorou demais.")
