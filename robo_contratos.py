@@ -12,6 +12,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 import time # Importante para o delay (ética do robô)
+import sqlite3
 
 def main():
     print(">>> INICIANDO O ROBÔ CRAWLER <<<")
@@ -51,13 +52,32 @@ def main():
             print(f"Erro ao ler página {pag}: {e}")
 
     # 6. Consolidação e Exportação (Fora do Loop)
+    # ... (seu código de extração continua igual) ...
+
+    # 6. Consolidação e Exportação Profissional
     print("Consolidando dados...")
     
     if dados_totais:
         df = pd.DataFrame(dados_totais)
-        nome_arquivo = "citacoes_famosas_completo.xlsx"
-        df.to_excel(nome_arquivo, index=False)
-        print(f"SUCESSO! {len(df)} citações salvas em '{nome_arquivo}'")
+        
+        # --- MUDANÇA: SALVANDO EM BANCO DE DADOS ---
+        
+        # 1. Conecta ao banco (se não existir, ele cria sozinho)
+        conn = sqlite3.connect('banco_contratos.db')
+        
+        # 2. Salva o DataFrame como uma tabela SQL chamada 'citacoes'
+        # if_exists='append': se já tiver dados lá, ele adiciona novos em baixo
+        # index=False: não salva o número da linha (0, 1, 2...)
+        df.to_sql('citacoes', conn, if_exists='append', index=False)
+        
+        # 3. Fecha a conexão (Educação digital)
+        conn.close()
+        
+        print(f"SUCESSO! {len(df)} citações salvas no Banco de Dados 'banco_contratos.db'")
+        
+        # Mantemos o Excel como backup, porque cliente adora Excel
+        df.to_excel("citacoes_backup.xlsx", index=False)
+        
     else:
         print("Nenhum dado foi extraído.")
 
