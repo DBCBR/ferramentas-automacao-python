@@ -67,11 +67,11 @@ pip install -r requirements.txt
 ▶️ Executando o Robô Principal (V3.0)
 A maneira mais fácil é utilizar o lançador automático:
 
-Dê um duplo clique no arquivo run.bat.
+1. Dê um duplo clique no arquivo run.bat.
 
-Siga as instruções no terminal (Escolha entre ler um Arquivo ou um Site).
+1. Siga as instruções no terminal (Escolha entre ler um Arquivo ou um Site).
 
-Ao finalizar, verifique a pasta dados/ para acessar o relatório Excel gerado.
+1. Ao finalizar, verifique a pasta dados/ para acessar o relatório Excel gerado.
 
 Se preferir rodar manualmente via terminal:
 
