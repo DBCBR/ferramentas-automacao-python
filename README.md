@@ -90,12 +90,12 @@ Unifica planilhas dispersas (ex: vendas_jan.xlsx, vendas_fev.xlsx) em um único 
 
 Execução: python estudos/consolidador.py
 
-1. Robô de Cotações (Crawler)
+2. Robô de Cotações (Crawler)
 Navega por múltiplas páginas web para extrair citações e autores.
 
 Execução: python estudos/aula_selenium.py (Antigo extrator_quotes)
 
-1. Robô de Login (RPA)
+3. Robô de Login (RPA)
 Demonstração de acesso seguro a sistemas fechados com preenchimento de formulários.
 
 Execução: python estudos/robo_login.py
