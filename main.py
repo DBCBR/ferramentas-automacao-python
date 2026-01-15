@@ -5,8 +5,10 @@ import pandas as pd
 import sqlite3
 import tkinter as tk
 from tkinter import filedialog
+from datetime import datetime
 from api_brasil_service import consultar_cnpj
 from web_scraper_service import capturar_texto_da_web
+
 
 # --- FASE 0: INTERAÇÃO COM O USUÁRIO (MENU) ---
 print(">>> BEM-VINDO AO ROBÔ CAÇADOR DE CONTRATOS <<<")
@@ -120,20 +122,32 @@ for cnpj_sujo in lista_cnpjs_encontrados:
     print("Aguardando 3 segundos...")
     time.sleep(3)
 
-# --- PASSO 4: PERSISTÊNCIA ---
+# --- PASSO 4: PERSISTÊNCIA E RELATÓRIO ---
 print("-" * 30)
 
 if resultados_finais:
-    print("Salvando no banco de dados SQLite...")
+    print("💾 Salvando no banco de dados SQLite...")
 
     df = pd.DataFrame(resultados_finais)
-    conn = sqlite3.connect('dados/banco_contratos.db')
-
+    
+    # Converte tudo para texto para evitar erro de lista
     df = df.astype(str)
+
+    # 1. Salva no Banco (Memória de Longo Prazo)
+    conn = sqlite3.connect('dados/banco_contratos.db')
     df.to_sql('fornecedores', conn, if_exists='append', index=False)
     conn.close()
+    
+    # 2. Gera o Relatório em Excel (Entrega para o Cliente)
+    # Gera um nome único com Ano, Mês, Dia, Hora, Minuto, Segundo
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    nome_arquivo = f"dados/relatorio_contratos_{timestamp}.xlsx"
+    
+    print(f"📊 Gerando planilha Excel: {nome_arquivo}...")
+    df.to_excel(nome_arquivo, index=False)
 
-    print("PROCESSO CONCLUÍDO COM SUCESSO! 🚀")
-    print(df[['cnpj', 'razao_social', 'uf']].head())
+    print("✅ PROCESSO CONCLUÍDO COM SUCESSO! 🚀")
+    print(f"Relatório disponível na pasta 'dados/'.")
+    
 else:
-    print("Nenhum dado válido encontrado nesta fonte.")
+    print("⚠️ Nenhum dado válido encontrado nesta fonte. Nada a salvar.")
