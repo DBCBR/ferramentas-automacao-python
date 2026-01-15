@@ -34,6 +34,7 @@ O projeto foi reestruturado seguindo padrões de arquitetura limpa:
 ├── 📄 web_scraper_service.py  # Módulo de visão computacional (Selenium)
 ├── ⚙️ run.bat                 # Lançador Automático (Clique e Rode)
 └── 📄 requirements.txt        # Lista de dependências
+```
 
 🛠️ Tecnologias Utilizadas
 Python 3 (Linguagem Core)
