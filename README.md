@@ -34,3 +34,72 @@ O projeto foi reestruturado seguindo padrões de arquitetura limpa:
 ├── 📄 web_scraper_service.py  # Módulo de visão computacional (Selenium)
 ├── ⚙️ run.bat                 # Lançador Automático (Clique e Rode)
 └── 📄 requirements.txt        # Lista de dependências
+
+🛠️ Tecnologias Utilizadas
+Python 3 (Linguagem Core)
+
+Selenium WebDriver: Automação de browser e extração de dados dinâmicos.
+
+Pandas & OpenPyXL: Engenharia de dados e geração de relatórios Excel.
+
+SQLite3: Persistência de dados local leve e eficiente.
+
+Requests & JSON: Consumo de APIs REST.
+
+Tkinter: Interfaces gráficas nativas.
+
+Regex: Expressões regulares para mineração de texto.
+
+📦 Como Usar
+Pré-requisitos
+Instale todas as dependências do projeto com o comando:
+
+```Bash
+
+pip install -r requirements.txt
+```
+
+▶️ Executando o Robô Principal (V3.0)
+A maneira mais fácil é utilizar o lançador automático:
+
+Dê um duplo clique no arquivo run.bat.
+
+Siga as instruções no terminal (Escolha entre ler um Arquivo ou um Site).
+
+Ao finalizar, verifique a pasta dados/ para acessar o relatório Excel gerado.
+
+Se preferir rodar manualmente via terminal:
+
+```Bash
+
+python main.py
+```
+
+📚 Módulos de Estudo (Ferramentas Anteriores)
+As ferramentas desenvolvidas anteriormente foram migradas para a pasta estudos/ e continuam funcionais:
+
+1. Consolidador de Excel (ETL)
+Unifica planilhas dispersas (ex: vendas_jan.xlsx, vendas_fev.xlsx) em um único relatório.
+
+Execução: python estudos/consolidador.py
+
+2. Robô de Cotações (Crawler)
+Navega por múltiplas páginas web para extrair citações e autores.
+
+Execução: python estudos/aula_selenium.py (Antigo extrator_quotes)
+
+3. Robô de Login (RPA)
+Demonstração de acesso seguro a sistemas fechados com preenchimento de formulários.
+
+Execução: python estudos/robo_login.py
+
+👨‍💻 Autor
+David Barcellos Cardoso
+
+E-mail: dbcbr@hotmail.com
+
+WhatsApp: (21) 98605-8337
+
+GitHub: github.com/DBCBR
+
+Projeto desenvolvido com foco em Clean Code e escalabilidade.
