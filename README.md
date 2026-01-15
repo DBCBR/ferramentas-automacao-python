@@ -36,20 +36,24 @@ O projeto foi reestruturado seguindo padrões de arquitetura limpa:
 └── 📄 requirements.txt        # Lista de dependências
 ```
 
+---
+
 🛠️ Tecnologias Utilizadas
-Python 3 (Linguagem Core)
+* Python 3 (Linguagem Core)
 
-Selenium WebDriver: Automação de browser e extração de dados dinâmicos.
+* Selenium WebDriver: Automação de browser e extração de dados dinâmicos.
 
-Pandas & OpenPyXL: Engenharia de dados e geração de relatórios Excel.
+* Pandas & OpenPyXL: Engenharia de dados e geração de relatórios Excel.
 
-SQLite3: Persistência de dados local leve e eficiente.
+* SQLite3: Persistência de dados local leve e eficiente.
 
-Requests & JSON: Consumo de APIs REST.
+* Requests & JSON: Consumo de APIs REST.
 
-Tkinter: Interfaces gráficas nativas.
+* Tkinter: Interfaces gráficas nativas.
 
-Regex: Expressões regulares para mineração de texto.
+* Regex: Expressões regulares para mineração de texto.
+
+---
 
 📦 Como Usar
 Pré-requisitos
@@ -76,6 +80,8 @@ Se preferir rodar manualmente via terminal:
 python main.py
 ```
 
+---
+
 📚 Módulos de Estudo (Ferramentas Anteriores)
 As ferramentas desenvolvidas anteriormente foram migradas para a pasta estudos/ e continuam funcionais:
 
@@ -94,6 +100,8 @@ Demonstração de acesso seguro a sistemas fechados com preenchimento de formul�
 
 Execução: python estudos/robo_login.py
 
+---
+
 👨‍💻 Autor
 David Barcellos Cardoso
 
@@ -102,5 +110,7 @@ E-mail: <dbcbr@hotmail.com>
 WhatsApp: (21) 98605-8337
 
 GitHub: github.com/DBCBR
+
+---
 
 Projeto desenvolvido com foco em Clean Code e escalabilidade.
