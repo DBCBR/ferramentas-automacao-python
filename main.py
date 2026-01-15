@@ -5,8 +5,8 @@ import pandas as pd
 import sqlite3
 import tkinter as tk
 from tkinter import filedialog
-from robo_investigador_cnpj import consultar_cnpj
-from modulo_web import capturar_texto_da_web
+from api_brasil_service import consultar_cnpj
+from web_scraper_service import capturar_texto_da_web
 
 # --- FASE 0: INTERAÇÃO COM O USUÁRIO (MENU) ---
 print(">>> BEM-VINDO AO ROBÔ CAÇADOR DE CONTRATOS <<<")
@@ -127,7 +127,7 @@ if resultados_finais:
     print("Salvando no banco de dados SQLite...")
 
     df = pd.DataFrame(resultados_finais)
-    conn = sqlite3.connect('banco_contratos.db')
+    conn = sqlite3.connect('dados/banco_contratos.db')
 
     df = df.astype(str)
     df.to_sql('fornecedores', conn, if_exists='append', index=False)

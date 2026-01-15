@@ -1,20 +1,16 @@
-# Ignorar ambiente virtual (pesado e inútil para os outros)
-.venv/
-venv/
-env/
 
-# Ignorar arquivos compilados do Python
+# Ignorar ambiente virtual e caches
+.venv/
 __pycache__/
 *.pyc
 
-# Ignorar pastas de build do PyInstaller (o .exe fica aqui, não sobe pro código)
-build/
-dist/
+# Ignorar dados locais e bancos de dados
+*.db
+*.sqlite3
+dados/*.db
+dados/*.xlsx
+dados/*.csv
+logs/
 
-# Ignorar arquivos de sistema operacional
+# Ignorar arquivos do sistema
 .DS_Store
-
-# Ignorar arquivos de saída (Opcional: se quiser provar que funciona, pode deixar subir)
-# Mas geralmente ignoramos o resultado final para não poluir
-# balancete_final.xlsx
-# Relatorio_Executivo_Formatado.xlsx
