@@ -8,6 +8,7 @@ from tkinter import filedialog
 from datetime import datetime
 from api_brasil_service import consultar_cnpj
 from web_scraper_service import capturar_texto_da_web
+from validadores import ValidadorCPF, ValidadorCNPJ
 
 
 # --- FASE 0: INTERAÇÃO COM O USUÁRIO (MENU) ---
@@ -110,10 +111,13 @@ resultados_finais = []
 for cnpj_sujo in lista_cnpjs_encontrados:
     print(f"\nProcessando CNPJ: {cnpj_sujo}")
 
-    # Higiene
-    cnpj_limpo = cnpj_sujo.replace(".", "").replace("/", "").replace("-", "")
+    validador = ValidadorCNPJ(cnpj_sujo)
+    cnpj_limpo = validador.limpar()
 
-    # API
+    if cnpj_limpo is None:
+        print("CNPJ Inválido. Pulando...")
+        continue
+
     dados_empresa = consultar_cnpj(cnpj_limpo)
 
     if dados_empresa:
