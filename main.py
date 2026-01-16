@@ -4,11 +4,27 @@ import os
 import pandas as pd
 import sqlite3
 import tkinter as tk
+import logging
 from tkinter import filedialog
 from datetime import datetime
 from api_brasil_service import consultar_cnpj
 from web_scraper_service import capturar_texto_da_web
 from validadores import ValidadorCPF, ValidadorCNPJ
+
+
+# Configuração da "Caixa Preta"
+logging.basicConfig(
+    filename='sistema.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%d/%m/%Y %H:%M:%S',
+    encoding='utf-8'
+)
+
+# Teste rápido
+logging.info("O Robô iniciou!")
+logging.warning("Isso é um aviso de teste.")
+logging.error("Isso é um erro de teste.")
 
 
 # --- FASE 0: INTERAÇÃO COM O USUÁRIO (MENU) ---
@@ -87,11 +103,11 @@ try:
         texto_bruto = df_leitura.to_string()
 
     else:
-        print(f"❌ ERRO: O formato do arquivo '{FONTE_DADOS}' não é suportado.")
+        logging.error(f"❌ ERRO: O formato do arquivo '{FONTE_DADOS}' não é suportado.")
         exit()
 
 except Exception as e:
-    print(f"❌ Erro ao ler a fonte de dados: {e}")
+    logging.error(f"❌ Erro ao ler a fonte de dados: {e}")
     exit()
 
 # --- DAQUI PARA BAIXO, TUDO IGUAL ---
@@ -109,7 +125,7 @@ print(f"Encontrei {len(lista_cnpjs_encontrados)} contratos únicos.")
 resultados_finais = []
 
 for cnpj_sujo in lista_cnpjs_encontrados:
-    print(f"\nProcessando CNPJ: {cnpj_sujo}")
+    logging.info(f"Processando CNPJ: {cnpj_sujo}")
 
     validador = ValidadorCNPJ(cnpj_sujo)
     cnpj_limpo = validador.limpar()

@@ -14,3 +14,4 @@ logs/
 
 # Ignorar arquivos do sistema
 .DS_Store
+sistema.log
