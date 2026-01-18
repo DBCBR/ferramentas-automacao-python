@@ -31,8 +31,7 @@ for cnpj_encontrado in lista_cnpjs:
     print(f"\nCapturado: {cnpj_encontrado}")
 
     # HIGIENE: Limpar para usar na API
-    cnpj_limpo = cnpj_encontrado.replace(
-        ".", "").replace("/", "").replace("-", "")
+    cnpj_limpo = cnpj_encontrado.replace(".", "").replace("/", "").replace("-", "")
     print(f"Pronto para API: {cnpj_limpo}")
 
     consultar_cnpj(cnpj_limpo)

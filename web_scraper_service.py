@@ -12,11 +12,12 @@ def capturar_texto_da_web(url_alvo):
         navegador.get(url_alvo)
 
         time.sleep(5)
-        elemento_corpo = navegador.find_element(By.TAG_NAME, 'body')
+        elemento_corpo = navegador.find_element(By.TAG_NAME, "body")
         texto_completo = elemento_corpo.text
 
         print(
-            f" Texto capturado com sucesso.! Tamanho: {len(texto_completo)} caracteres. ")
+            f" Texto capturado com sucesso.! Tamanho: {len(texto_completo)} caracteres. "
+        )
         return texto_completo
 
     except Exception as e:

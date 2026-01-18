@@ -42,11 +42,11 @@ except Exception as e:
 # Mantém aberto para você conferir
 # navegador.quit()
 
-'''Resumo dos Seletores:
+"""Resumo dos Seletores:
 🥇 ID (By.ID): É o CPF do elemento. É único e rápido. Se existir, USE. (Ex: id-search-field).
 
 🥈 NAME (By.NAME): É o Nome. Pode ter homônimos, mas costuma ser seguro em formulários. (Ex: q).
 
 🥉 XPATH (By.XPATH): É a "coordenada GPS". É poderoso e acha tudo, mas se o site mudar o layout, ele quebra. 
 Use quando não tiver ID ou Name.
-'''
+"""

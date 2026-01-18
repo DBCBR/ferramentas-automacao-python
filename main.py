@@ -11,14 +11,13 @@ from api_brasil_service import consultar_cnpj
 from web_scraper_service import capturar_texto_da_web
 from validadores import ValidadorCPF, ValidadorCNPJ
 
-
 # Configuração da "Caixa Preta"
 logging.basicConfig(
-    filename='sistema.log',
+    filename="sistema.log",
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%d/%m/%Y %H:%M:%S',
-    encoding='utf-8'
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%d/%m/%Y %H:%M:%S",
+    encoding="utf-8",
 )
 
 # Teste rápido
@@ -37,7 +36,7 @@ opcao = input("Digite o número da opção (1 ou 2): ").strip()
 
 FONTE_DADOS = ""
 
-if opcao == '1':
+if opcao == "1":
     print("📂 Abrindo janela de seleção de arquivo...")
     time.sleep(1)
 
@@ -48,8 +47,7 @@ if opcao == '1':
     # Abre a caixa "Abrir Arquivo"
     FONTE_DADOS = filedialog.askopenfilename(
         title="Selecione o arquivo de contratos",
-        filetypes=[("Todos os arquivos suportados",
-                    "*.txt *.xlsx *.xls *.csv")]
+        filetypes=[("Todos os arquivos suportados", "*.txt *.xlsx *.xls *.csv")],
     )
 
     if not FONTE_DADOS:
@@ -58,7 +56,7 @@ if opcao == '1':
 
     print(f"✅ Arquivo selecionado: {FONTE_DADOS}")
 
-elif opcao == '2':
+elif opcao == "2":
     FONTE_DADOS = input("🌐 Cole a URL do site aqui: ").strip()
 
     if not FONTE_DADOS.startswith("http"):
@@ -80,24 +78,24 @@ try:
     # A LÓGICA AGORA É UNIFICADA (IF / ELIF / ELSE)
 
     # 1. É WEB?
-    if FONTE_DADOS.startswith('http'):
+    if FONTE_DADOS.startswith("http"):
         print("Modo Detectado: WEB SCRAPING (SELENIUM)")
         texto_bruto = capturar_texto_da_web(FONTE_DADOS)
 
     # 2. É TXT?
-    elif FONTE_DADOS.endswith('.txt'):
+    elif FONTE_DADOS.endswith(".txt"):
         print("Modo Detectado: LEITURA DE TEXTO")
-        with open(FONTE_DADOS, 'r', encoding='utf-8') as arquivo:
+        with open(FONTE_DADOS, "r", encoding="utf-8") as arquivo:
             texto_bruto = arquivo.read()
 
     # 3. É EXCEL?
-    elif FONTE_DADOS.endswith('.xlsx') or FONTE_DADOS.endswith('.xls'):
+    elif FONTE_DADOS.endswith(".xlsx") or FONTE_DADOS.endswith(".xls"):
         print("Modo Detectado: LEITURA DE EXCEL")
         df_leitura = pd.read_excel(FONTE_DADOS)
         texto_bruto = df_leitura.to_string()
 
     # 4. É CSV?
-    elif FONTE_DADOS.endswith('.csv'):
+    elif FONTE_DADOS.endswith(".csv"):
         print("Modo Detectado: LEITURA DE CSV")
         df_leitura = pd.read_csv(FONTE_DADOS)
         texto_bruto = df_leitura.to_string()
@@ -149,25 +147,25 @@ if resultados_finais:
     print("💾 Salvando no banco de dados SQLite...")
 
     df = pd.DataFrame(resultados_finais)
-    
+
     # Converte tudo para texto para evitar erro de lista
     df = df.astype(str)
 
     # 1. Salva no Banco (Memória de Longo Prazo)
-    conn = sqlite3.connect('dados/banco_contratos.db')
-    df.to_sql('fornecedores', conn, if_exists='append', index=False)
+    conn = sqlite3.connect("dados/banco_contratos.db")
+    df.to_sql("fornecedores", conn, if_exists="append", index=False)
     conn.close()
-    
+
     # 2. Gera o Relatório em Excel (Entrega para o Cliente)
     # Gera um nome único com Ano, Mês, Dia, Hora, Minuto, Segundo
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     nome_arquivo = f"dados/relatorio_contratos_{timestamp}.xlsx"
-    
+
     print(f"📊 Gerando planilha Excel: {nome_arquivo}...")
     df.to_excel(nome_arquivo, index=False)
 
     print("✅ PROCESSO CONCLUÍDO COM SUCESSO! 🚀")
     print(f"Relatório disponível na pasta 'dados/'.")
-    
+
 else:
     print("⚠️ Nenhum dado válido encontrado nesta fonte. Nada a salvar.")

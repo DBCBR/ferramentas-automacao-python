@@ -3,9 +3,11 @@ class ValidadorCPF:
         self.documento = documento_bruto
 
     def limpar(self):
-        if self.documento is None or self.documento == "": return None
+        if self.documento is None or self.documento == "":
+            return None
         limpo = str(self.documento).strip().replace(".", "").replace("-", "")
-        if len(limpo) != 11: return None
+        if len(limpo) != 11:
+            return None
         return limpo
 
     def formatar(self):
@@ -18,9 +20,17 @@ class ValidadorCPF:
 class ValidadorCNPJ:
     def __init__(self, documento_bruto):
         self.documento = documento_bruto
-        
+
     def limpar(self):
-        if self.documento is None or self.documento == "": return None
-        limpo = str(self.documento).strip().replace(".", "").replace("/", "").replace("-", "")
-        if len(limpo) != 14: return None
+        if self.documento is None or self.documento == "":
+            return None
+        limpo = (
+            str(self.documento)
+            .strip()
+            .replace(".", "")
+            .replace("/", "")
+            .replace("-", "")
+        )
+        if len(limpo) != 14:
+            return None
         return limpo
