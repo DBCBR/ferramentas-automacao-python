@@ -1,117 +1,123 @@
-# 🚀 Automação de Processos Corporativos & Inteligência de Dados
+# 🚀 Portfólio: Backend Engineering & Automação Python
 
-> Portfólio de ferramentas desenvolvidas para automatizar tarefas de ETL, Web Scraping, RPA e Enriquecimento de Dados, focadas em eficiência e redução de custos operacionais.
+> Repositório central de projetos focados em Desenvolvimento Backend (APIs), Engenharia de Dados (ETL) e Automação de Processos (RPA).
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![SQLite](https://img.shields.io/badge/SQLite-Database-blue) ![Selenium](https://img.shields.io/badge/Selenium-Automated-green) ![Status](https://img.shields.io/badge/Status-Ativo-success)
-
-## 📋 Sobre o Projeto
-
-Este repositório evoluiu de uma coleção de scripts para uma **Suíte de Automação Profissional**. O foco principal é o **Robô Caçador de Contratos (V3.0)**, uma solução completa de monitoramento e enriquecimento de dados cadastrais.
-
-### 🔥 Destaque Principal: Robô Caçador de Contratos (V3.0)
-
-Uma aplicação robusta que realiza o ciclo completo de ETL (Extração, Transformação e Carga):
-
-1. **Ingestão Híbrida:** Aceita entrada de dados via **Arquivos Locais** (.txt, .xlsx, .csv) ou **Web Scraping** direto de URLs (via Selenium).
-2. **Mineração de Dados (Regex):** Localiza padrões de CNPJ em textos desestruturados.
-3. **Enriquecimento (API):** Consulta automaticamente a situação cadastral na Receita Federal (via BrasilAPI) com tratamento de erros (404, 429, 500).
-4. **Armazenamento e Relatórios:** Salva o histórico em banco de dados **SQLite** e gera relatórios formatados em **Excel** automaticamente.
-5. **Interface Amigável:** Menu interativo e janelas de seleção de arquivos nativas do Windows.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-red?style=for-the-badge)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white)
 
 ---
 
-## 📂 Estrutura do Projeto
+## 🏆 Projetos em Destaque
 
-O projeto foi reestruturado seguindo padrões de arquitetura limpa:
+### 1. 🏗️ API Gestor de Tarefas (Backend RESTful)
+**Foco:** Desenvolvimento Backend, APIs REST, Persistência de Dados e Arquitetura MVC.
+
+Um microsserviço completo para gerenciamento de tarefas, implementando o ciclo **CRUD** (Create, Read, Update, Delete) com validação de dados rigorosa e persistência em banco de dados relacional.
+
+* **Tecnologias:** FastAPI, SQL Alchemy (ORM), Pydantic, SQLite.
+* **Funcionalidades:**
+    * ✅ **CRUD Completo:** Criação, leitura, atualização e remoção de registros.
+    * ✅ **Persistência Real:** Dados salvos em disco (`tarefas.db`) via SQL.
+    * ✅ **Tratamento de Erros:** Respostas HTTP semânticas (201, 204, 404).
+    * ✅ **Documentação Automática:** Swagger UI integrado.
+
+---
+
+### 2. 🤖 Robô Caçador de Contratos V3.0 (Automação ETL)
+**Foco:** Web Scraping, Tratamento de Dados e Integração de Sistemas.
+
+Uma aplicação robusta que realiza o ciclo completo de ETL (Extração, Transformação e Carga) para monitoramento e enriquecimento de dados cadastrais (CNPJ).
+
+* **Tecnologias:** Selenium WebDriver, Pandas, Requests, Regex.
+* **Pipeline:**
+    1.  **Ingestão Híbrida:** Lê arquivos locais (.xlsx) ou varre URLs via Selenium.
+    2.  **Mineração (Regex):** Localiza padrões de CNPJ em textos desestruturados.
+    3.  **Enriquecimento (API):** Consulta Receita Federal/BrasilAPI com tratamento de exceções.
+    4.  **Relatórios:** Gera planilhas Excel formatadas automaticamente.
+
+---
+
+## 📂 Estrutura do Repositório
 
 ```text
 /ferramentas-automacao-python
 │
-├── 📁 dados/                  # Onde ficam os inputs (arquivos) e outputs (relatórios e banco)
-├── 📁 estudos/                # Scripts de ferramentas anteriores e testes (Legado)
-├── 📄 main.py                 # O Cérebro do Robô V3.0 (Arquivo Principal)
-├── 📄 api_brasil_service.py   # Módulo de conexão e tratamento de API
-├── 📄 web_scraper_service.py  # Módulo de visão computacional (Selenium)
-├── ⚙️ run.bat                 # Lançador Automático (Clique e Rode)
-└── 📄 requirements.txt        # Lista de dependências
+├── 🚀 BACKEND (API)
+│   ├── gestor_tarefas.py      # Aplicação FastAPI (Controller & Routes)
+│   └── tarefas.db             # Banco de Dados SQLite (Gerado automaticamente)
+│
+├── 🤖 AUTOMAÇÃO (ROBÔ)
+│   ├── main.py                # O Cérebro do Robô V3.0 (ETL)
+│   ├── api_brasil_service.py  # Módulo de conexão com APIs externas
+│   ├── web_scraper_service.py # Módulo de visão computacional (Selenium)
+│   ├── run.bat                # Lançador Automático
+│   └── dados/                 # Inputs e Relatórios gerados
+│
+└── 📚 LEGADO (ESTUDOS)
+    └── estudos/               # Scripts anteriores (Crawlers, Login RPA)
 ```
 
 ---
 
-🛠️ Tecnologias Utilizadas
-
-* Python 3 (Linguagem Core)
-
-* Selenium WebDriver: Automação de browser e extração de dados dinâmicos.
-
-* Pandas & OpenPyXL: Engenharia de dados e geração de relatórios Excel.
-
-* SQLite3: Persistência de dados local leve e eficiente.
-
-* Requests & JSON: Consumo de APIs REST.
-
-* Tkinter: Interfaces gráficas nativas.
-
-* Regex: Expressões regulares para mineração de texto.
+🛠️ Tech Stack & Ferramentas
+Categoria,Tecnologias
+Linguagem,Python 3.10+
+Backend & API,"FastAPI, Uvicorn, Pydantic"
+Banco de Dados,"SQLite3, SQLAlchemy (ORM)"
+Engenharia de Dados,"Pandas, OpenPyXL, Regex"
+Automação Web,"Selenium WebDriver, Requests"
+Outros,"Git, Tkinter, JSON"
 
 ---
 
-📦 Como Usar
-Pré-requisitos
-Instale todas as dependências do projeto com o comando:
+📦 Como Executar os Projetos
+Pré-requisito: Instale as dependências.
 
 ```Bash
 
-pip install -r requirements.txt
+pip install fastapi uvicorn sqlalchemy requests pandas selenium openpyxl
 ```
 
-▶️ Executando o Robô Principal (V3.0)
-A maneira mais fácil é utilizar o lançador automático:
+▶️ Opção A: Rodar a API (Gestor de Tarefas)
 
-1. Dê um duplo clique no arquivo run.bat.
+No terminal, execute o servidor Uvicorn:
 
-1. Siga as instruções no terminal (Escolha entre ler um Arquivo ou um Site).
+```Bash
 
-1. Ao finalizar, verifique a pasta dados/ para acessar o relatório Excel gerado.
+uvicorn gestor_tarefas:app --reload
+```
 
-Se preferir rodar manualmente via terminal:
+Acesse a documentação interativa (Swagger) no navegador:
+
+👉 http://127.0.0.1:8000/docs
+
+▶️ Opção B: Rodar o Robô de Automação
+
+Execute o arquivo principal:
 
 ```Bash
 
 python main.py
 ```
 
----
-
-📚 Módulos de Estudo (Ferramentas Anteriores)
-As ferramentas desenvolvidas anteriormente foram migradas para a pasta estudos/ e continuam funcionais:
-
-1. Consolidador de Excel (ETL)
-Unifica planilhas dispersas (ex: vendas_jan.xlsx, vendas_fev.xlsx) em um único relatório.
-
-Execução: python estudos/consolidador.py
-
-1. Robô de Cotações (Crawler)
-Navega por múltiplas páginas web para extrair citações e autores.
-
-Execução: python estudos/aula_selenium.py (Antigo extrator_quotes)
-
-1. Robô de Login (RPA)
-Demonstração de acesso seguro a sistemas fechados com preenchimento de formulários.
-
-Execução: python estudos/robo_login.py
+Ou use o lançador run.bat para a interface interativa.
 
 ---
 
 👨‍💻 Autor
-David Barcellos Cardoso
+David Barcellos Cardoso Desenvolvedor Python | Backend & Automação
 
-E-mail: <dbcbr@hotmail.com>
+📧 E-mail: dbcbr@hotmail.com
 
-WhatsApp: (21) 98605-8337
+📱 WhatsApp: (21) 98605-8337
 
-GitHub: github.com/DBCBR
+🌐 GitHub: github.com/DBCBR
+
+💼 LinkedIn: linkedin.com/in/david-barcellos-cardoso
 
 ---
 
-Projeto desenvolvido com foco em Clean Code e escalabilidade.
+Este portfólio demonstra a capacidade de transitar entre Scripts de Automação e Engenharia de Software (Backend), aplicando Clean Code, POO e arquiteturas escaláveis.
